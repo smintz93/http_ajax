@@ -7,6 +7,7 @@ class FullPost extends Component {
     state = {
         loadedPost: null
     }
+    
     componentDidUpdate(){
         if(this.props.id) {
             if(!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
@@ -17,8 +18,8 @@ class FullPost extends Component {
                     })
                 }
             }    
-       
     }
+
     render () {
         let post = <p style={{textAlign: 'center'}}>Please select a Post!</p>;
         if(this.props.id) {
