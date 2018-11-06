@@ -8,6 +8,7 @@ import axios from 'axios';
 // global error handling or request and reponse handling 
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 
 axios.interceptors.request.use(request => {
 	console.log(request);
