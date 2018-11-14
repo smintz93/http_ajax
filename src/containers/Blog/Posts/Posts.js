@@ -11,6 +11,7 @@ class Posts extends Component {
     }
 
     componentDidMount(){
+    	console.log(this.props)
         // es6 promises 
         axios.get('/posts')
             .then((response) => {
