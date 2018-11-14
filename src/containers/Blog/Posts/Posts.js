@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../../axios';
+import { Link } from 'react-router-dom';
 
 import Post from '../../../components/Post/Post';
 import './Posts.css';
@@ -11,7 +12,7 @@ class Posts extends Component {
     }
 
     componentDidMount(){
-    	console.log(this.props)
+    	// console.log(this.props)
         // es6 promises 
         axios.get('/posts')
             .then((response) => {
@@ -38,14 +39,17 @@ class Posts extends Component {
     }
 
 	render(){
-		let posts = <p style={{textAlign: 'center'}}>Somethign went wrong!</p>;
+		let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if(!this.state.error) {
             posts = this.state.posts.map(post => {
-                    return <Post 
-                    key={post.id}
-                    title={post.title} 
-                    author={post.author}
-                    clicked={() => this.postSelected(post.id)}/> 
+                    return (
+                    	<Link key={post.id} to={'/' + post.id}>
+		                    <Post 
+		                    title={post.title} 
+		                    author={post.author}
+		                    clicked={() => this.postSelected(post.id)}/>
+		                </Link> );     
+
             });
         }
 
