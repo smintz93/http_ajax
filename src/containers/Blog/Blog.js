@@ -13,7 +13,7 @@ const AsyncNewPost = asyncComponent(() => {
 
 class Blog extends Component {
     state = {
-        auth: true
+        auth: false
     }
     render () {
         
